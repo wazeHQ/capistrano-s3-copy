@@ -42,7 +42,7 @@ module Capistrano
             raise Capistrano::Error, "shell command failed with return code #{$?}" if $? != 0
           end
 
-          run "#{aws_environment} s3cmd get #{bucket_name}:#{rails_env}/#{package_name} #{remote_filename} 2>&1"
+          run "#{aws_environment} s3cmd get s3://#{bucket_name}/#{rails_env}/#{package_name} #{remote_filename} 2>&1"
           run "cd #{configuration[:releases_path]} && #{decompress(remote_filename).join(" ")} && rm #{remote_filename}"
           logger.debug "done!"
 
