@@ -56,6 +56,7 @@ module Capistrano
           template = ERB.new(template_text, nil, '<>-')
           output = template.result(self.binding)
           local_output_file = File.join(copy_dir, "aws_install.sh")
+          logger.debug "File name: #{local_output_file}"
           File.open(local_output_file, "w") do  |f|
             f.write(output)
           end
