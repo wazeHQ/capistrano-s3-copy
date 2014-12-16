@@ -1,4 +1,4 @@
-Capistrano::Configuration.instance(false).load do
+Capistrano::Configuration.instance(:must_exist).load do
 
   namespace :s3_copy do
 
