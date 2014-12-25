@@ -1,4 +1,4 @@
-Capistrano::Configuration.instance(:must_exist).load do
+# Capistrano::Configuration.instance(:must_exist).load do
 
   namespace :s3_copy do
 
@@ -12,4 +12,4 @@ Capistrano::Configuration.instance(:must_exist).load do
   end
 
   after 'deploy', 's3_copy:store_aws_install_script_on_success'
-end
+# end
